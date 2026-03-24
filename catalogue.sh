@@ -77,7 +77,7 @@ dnf install mongodb-mongosh -y
 VALIDATE $? "Installing mongdb client"
 
 STATUS=$(mongosh --host mongodb.aryavirtuoso.site --eval 'db.getMongo().getDBnames().indexof("catalogue")')
-if [ STATUS -lt 0 ]
+if [ $STATUS -lt 0 ]
 then 
      mongosh --host mongodb.aryavirtuoso.site </app/db/master-data.js &>>$LOG_FILE 
      VALIDATE $? "Loading data into mongodb"
